@@ -1,0 +1,46 @@
+class Taxi {
+
+    constructor(x, y, diameter, speed) {
+        this.x = x;
+        this.y = y;
+        this.diameter = diameter;
+        this.speed = speed;
+    }
+
+    display() {
+
+    //Pintar todo el Taxi
+
+        //Cuadrado amarillo del Taxi
+        rectMode(CORNER);
+        fill(255, 242, 123);
+        noStroke();
+        rect(this.x+30, this.y, this.diameter, this.diameter + 10);
+
+        //Llantas del taxi
+        fill(80);
+        noStroke();
+        rect(this.x+27, this.y, 5, 10); //Lanta sup izq
+        rect(this.x+58, this.y, 5, 10); //Llanta sup der
+        rect(this.x+27, this.y + 30, 5, 10); //Llanta inf izq
+        rect(this.x+58, this.y + 30, 5, 10);
+    }
+
+    move() {
+        this.y += this.speed;
+
+        if (this.y > 420) {
+            this.y = -20;
+        }
+    }
+
+    getX(){
+        return this.x;
+    }
+
+    getY(){
+        return this.y;
+    }
+
+    
+}

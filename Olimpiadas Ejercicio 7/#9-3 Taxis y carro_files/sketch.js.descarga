@@ -1,0 +1,89 @@
+let taxiCol1 = [];
+let taxiCol2 = [];
+let taxiCol3 = [];
+let taxiCol4 = [];
+
+let car = new Car(30, 200, 30);
+
+function setup() {
+  createCanvas(600, 400);
+
+  let y = 100;
+
+  //Primera columna de taxis
+  for (let i = 0; i < 4; i++) {
+    taxiCol1.push(new Taxi(100, y, 30, 2));
+    taxiCol1.push(new Taxi(100, y + (160 * 1), 30, 2));
+    taxiCol1.push(new Taxi(100, y + (160 * 2), 30, 2));
+    taxiCol1.push(new Taxi(100, y + (160 * 3), 30, 2));
+
+  }
+
+  //Segunda columna de taxis
+  for (let i = 0; i < 4; i++) {
+    taxiCol2.push(new Taxi(200, y, 30, 2.5));
+    taxiCol2.push(new Taxi(200, y + (160 * 1), 30, 2.5));
+    taxiCol2.push(new Taxi(200, y + (160 * 2), 30, 2.5));
+    taxiCol2.push(new Taxi(200, y + (160 * 3), 30, 2.5));
+  }
+
+  //Tercera columna de taxis
+  for (let i = 0; i < 4; i++) {
+    taxiCol3.push(new Taxi(300, y, 30, 1.5));
+    taxiCol3.push(new Taxi(300, y + (160 * 1), 30, 1.5));
+    taxiCol3.push(new Taxi(300, y + (160 * 2), 30, 1.5));
+    taxiCol3.push(new Taxi(300, y + (160 * 3), 30, 1.5));
+  }
+
+  //Cuarta columna de taxis
+  for (let i = 0; i < 4; i++) {
+    taxiCol4.push(new Taxi(400, y, 30, 2));
+    taxiCol4.push(new Taxi(400, y + (160 * 1), 30, 2));
+    taxiCol4.push(new Taxi(400, y + (160 * 2), 30, 2));
+    taxiCol4.push(new Taxi(400, y + (160 * 3), 30, 2));
+  }
+}
+
+function draw() {
+  background(165);
+  let x = 75;
+
+  //Se pinta la carretera
+  for (let i = 0; i < 4; i++) {
+    fill(123);
+    stroke(255);
+    rectMode(CENTER);
+    rect(x + 70, 0, 80, 900);
+    x += 100;
+  }
+
+  //Se pintan los taxis de la Columna 1
+  for (let i = 0; i < 4; i++) {
+    taxiCol1[i].display();
+    taxiCol1[i].move();
+  }
+
+  //Se pintan los taxis de la Columna 2
+  for (let i = 0; i < 4; i++) {
+    taxiCol2[i].display();
+    taxiCol2[i].move();
+  }
+
+  //Se pintan los taxis de la Columna 3
+  for (let i = 0; i < 4; i++) {
+    taxiCol3[i].display();
+    taxiCol3[i].move();
+  }
+
+  //Se pintan los taxis de la Columna 4
+  for (let i = 0; i < 4; i++) {
+    taxiCol4[i].display();
+    taxiCol4[i].move();
+  }
+
+  //Pinta el carro rojo
+  car.display();
+  car.move();
+
+  
+}
